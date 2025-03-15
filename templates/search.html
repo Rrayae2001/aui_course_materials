@@ -1,4 +1,29 @@
-<form method="POST">
-    <input type="text" name="course_code" placeholder="Enter Course Code">
-    <button type="submit">Search</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Materials - Course Materials</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="search-container">
+        <h2>Search Course Materials</h2>
+        <form action="{{ url_for('search') }}" method="POST">
+            <label for="course_code">Enter Course Code:</label>
+            <input type="text" id="course_code" name="course_code" required>
+            <button type="submit" class="btn">Search</button>
+        </form>
+        {% if materials %}
+            <h3>Materials for {{ course_code }}:</h3>
+            <ul>
+                {% for material in materials %}
+                    <li>{{ material.course_name }} - {{ material.material_type }} - Uploaded by: {{ material.professor }}</li>
+                {% endfor %}
+            </ul>
+        {% elif error_message %}
+            <p>{{ error_message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
