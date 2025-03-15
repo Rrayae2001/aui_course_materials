@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Course Materials</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to AUI Course Materials</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('upload') }}">Upload Course Materials</a></li>  <!-- Corrected here -->
+            <li><a href="{{ url_for('search') }}">Search Course Materials</a></li>
+        </ul>
+    </nav>
+
+    <footer>
+        <p>© 2025 Al Akhawayn University. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
